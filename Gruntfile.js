@@ -15,16 +15,35 @@ module.exports = function(grunt) {
         }
       }
     },
+   connect: {
+     server: {
+       options: {
+         port: 3000,
+         keepalive: true
+       }
+     }
+   },
     watch: {
       scripts: {
         files: 'sass/*.sass',
         tasks: ['sass'],
         options: {
           interrupt: true,
+          livereload: true
+        }
+      }
+    },
+    uglify: {
+      build: {
+        files: {
+          'dist/app.js': ['js/lib/jquery.min.js', 'js/accordion.js']
         }
       }
     }
   });
 
+  grunt.registerTask('serve', ['connect']);
   grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('build', ['test', 'sass', 'uglify']);
+
 };

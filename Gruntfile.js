@@ -2,9 +2,6 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
-    qunit: {
-      all: ['test/*.html']
-    },
     jshint: {
       all: ['Gruntfile.js', 'js/*.js']
     },
@@ -41,6 +38,7 @@ module.exports = function(grunt) {
       }
     }
   });
+  grunt.loadTasks('grunt-tasks');
 
   grunt.registerTask('serve', ['connect']);
   grunt.registerTask('test', ['jshint', 'qunit']);

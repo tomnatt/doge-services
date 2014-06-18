@@ -39,11 +39,14 @@ module.exports = function(grunt) {
           'dist/app.js': ['js/lib/jquery.min.js', 'js/accordion.js']
         }
       }
+    },
+    concurrent: {
+      test: ['jshint', 'qunit']
     }
   });
 
   grunt.registerTask('serve', ['connect']);
-  grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('test', ['concurrent:test']);
   grunt.registerTask('build', ['test', 'sass', 'uglify']);
 
 };

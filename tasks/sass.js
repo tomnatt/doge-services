@@ -1,8 +1,8 @@
 var gulp = require('gulp');
-var tasks = require('gulp-load-plugins')();
+var rubySass = require('gulp-ruby-sass');
 
 gulp.task('sass', function() {
   return gulp.src('sass/style.sass')
-    .pipe(tasks.rubySass())
+    .pipe(rubySass())
     .pipe(gulp.dest('css'))
 });

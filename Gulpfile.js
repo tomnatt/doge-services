@@ -1,20 +1,11 @@
 var gulp = require('gulp');
 var tasks = require('gulp-load-plugins')();
-var requireDir = require('require-dir');
-var dir = requireDir('./tasks');
+
+require('require-dir')('./tasks');
 
 gulp.task('test', ['lint'], function() {
   return gulp.src('./test/index.html').pipe(tasks.qunit());
 });
-
-// gulp.task('sass', function() {
-//   return gulp.src('sass/style.sass')
-//     .pipe(tasks.rubySass())
-//     .pipe(gulp.dest('css'))
-//     .pipe(tasks.livereload({
-//       auto: false
-//     }));
-// });
 
 gulp.task('connect', function() {
   tasks.connect.server({

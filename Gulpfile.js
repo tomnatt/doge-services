@@ -16,11 +16,13 @@ gulp.task('connect', function() {
 
 gulp.task('watch', function() {
   gulp.watch('sass/*.sass', ['sass']);
+  gulp.watch('js/*.js', ['lint']);
 });
 
 
 gulp.task('lint', function() {
   return gulp.src('./js/*.js')
+    .pipe(tasks.plumber())
     .pipe(tasks.jshint())
     .pipe(tasks.jshint.reporter('default'))
     .pipe(tasks.jshint.reporter('fail'))

@@ -24,7 +24,6 @@ gulp.task('connect', function() {
 });
 
 gulp.task('watch', function() {
-  tasks.livereload.listen();
   gulp.watch('sass/*.sass', ['sass']);
 });
 
@@ -33,7 +32,8 @@ gulp.task('lint', function() {
   return gulp.src('./js/*.js')
     .pipe(tasks.jshint())
     .pipe(tasks.jshint.reporter('default'))
-    .pipe(tasks.jshint.reporter('fail'));
+    .pipe(tasks.jshint.reporter('fail'))
+    .on('error', tasks.notify.onError('there was an error'));
 });
 
 gulp.task('uglify', function() {

@@ -2,7 +2,7 @@ window.initAccordion = function() {
   var accordion = $(".accordion");
 
   var paras = accordion.find("p");
-  paras.not(":first").hide();
+  paras.not(":first").hide()
 
   accordion.on("click", "h3", function() {
     var h3 = $(this);

@@ -1,0 +1,27 @@
+{
+  "name": "doge-services",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomnatt/doge-services.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomnatt/doge-services/issues"
+  },
+  "homepage": "https://github.com/tomnatt/doge-services",
+  "dependencies": {
+    "gulp": "^3.8.2",
+    "gulp-concat": "^2.2.0",
+    "gulp-uglify": "^0.3.1"
+  }
+}

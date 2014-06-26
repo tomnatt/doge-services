@@ -2,6 +2,10 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+        qunit: {
+            all: ["test/*.html"]
+        },
+
         uglify: {
             build: {
                 files: {
@@ -13,6 +17,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-qunit");
 
-    grunt.registerTask("default", ["uglify:build"]);
+    grunt.registerTask("default", ["qunit", "uglify:build"]);
 };

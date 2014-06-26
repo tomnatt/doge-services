@@ -9,3 +9,5 @@ Then:
 ```sh
 grunt
 ```
+
+Live reload requires the browser plugin.

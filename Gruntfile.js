@@ -5,18 +5,6 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        qunit: {
-            all: ["test/*.html"]
-        },
-
-        uglify: {
-            build: {
-                files: {
-                    "dist/js/app.js": ["js/lib/*.js", "js/*.js"]
-                }
-            }
-        },
-
         sass: {                              // Task
             dist: {                            // Target
                 options: {                       // Target options
@@ -70,6 +58,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-sass");
     */
+
+    // load all the config files in the given folder
+    grunt.loadTasks("grunt-tasks");
 
     // run these tasks in order, stopping if one fails
     grunt.registerTask("default", ["qunit", "uglify:build", "sass:dist"]);

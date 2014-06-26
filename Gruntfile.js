@@ -14,6 +14,17 @@ module.exports = function(grunt) {
             }
         },
 
+        sass: {                              // Task
+            dist: {                            // Target
+                options: {                       // Target options
+                    style: 'expanded'
+                },
+                files: {                         // Dictionary of files
+                    'dist/css/main.css': 'sass/style.sass'       // 'destination': 'source'
+                }
+            }
+        },
+
         connect: {
             server: {
                 options: {
@@ -28,6 +39,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-qunit");
     grunt.loadNpmTasks("grunt-contrib-connect");
+    grunt.loadNpmTasks("grunt-contrib-sass");
 
     // run these tasks in order, stopping if one fails
     grunt.registerTask("default", ["qunit", "uglify:build"]);

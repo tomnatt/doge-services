@@ -11,3 +11,5 @@ grunt
 ```
 
 Live reload requires the browser plugin.
+
+Also in here is grunt-notify which will fire a desktop notification when error messages happen.

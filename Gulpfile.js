@@ -1,17 +1,27 @@
 var gulp = require('gulp');
 var tasks = require('gulp-load-plugins')();
+var browserSync = require('browser-sync');
+
+
+// browser-sync task for starting the server.
+gulp.task('browser-sync', function() {
+  browserSync.init(null, {
+    server: {
+      baseDir: "./"
+    }
+  });
+});
+
 
 gulp.task('test', ['lint'], function() {
   return gulp.src('./test/index.html').pipe(tasks.qunit());
 });
 
 gulp.task('sass', function() {
-  return gulp.src('sass/style.sass')
+  gulp.src('sass/style.sass')
     .pipe(tasks.rubySass())
     .pipe(gulp.dest('css'))
-    .pipe(tasks.livereload({
-      auto: false
-    }));
+    .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('connect', function() {
@@ -21,8 +31,7 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('watch', function() {
-  tasks.livereload.listen();
+gulp.task('watch',['sass', 'browser-sync'], function() {
   gulp.watch('sass/*.sass', ['sass']);
 });
 

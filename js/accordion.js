@@ -1,4 +1,5 @@
 window.initAccordion = function() {
+  // comment
   var accordion = $(".accordion");
 
   var paras = accordion.find("p")

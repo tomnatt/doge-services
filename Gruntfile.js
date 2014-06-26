@@ -34,6 +34,17 @@ module.exports = function(grunt) {
                     keepalive: true
                 }
             }
+        },
+
+        watch: {
+            sass: {
+                files: "sass/*.sass",
+                tasks: ["sass"]
+            },
+            js: {
+                files: ["js/*.js", "test/*.js"],
+                tasks: ["qunit"]
+            }
         }
 
     });

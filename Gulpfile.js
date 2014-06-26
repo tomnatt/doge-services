@@ -18,7 +18,10 @@ gulp.task('uglify', function() {
 gulp.task('sass', function () {
     return gulp.src('sass/style.sass')
         .pipe(tasks.rubySass({sourcemap: true}))
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('dist/css'))
+        .pipe(tasks.livereload({
+            auto: false
+        }));
 });
 
 gulp.task('test', function() {
@@ -34,6 +37,7 @@ gulp.task('connect', function() {
 });
 
 gulp.task('watch', function() {
+    tasks.livereload.listen();
     gulp.watch('sass/*.sass', ['sass']);
 });
 

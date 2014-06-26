@@ -33,5 +33,9 @@ gulp.task('connect', function() {
     });
 });
 
+gulp.task('watch', function() {
+    gulp.watch('sass/*.sass', ['sass']);
+});
+
 gulp.task('serve', ['connect']);
 gulp.task('build', ['uglify', 'sass']);

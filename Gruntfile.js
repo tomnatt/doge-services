@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+    require("load-grunt-tasks")(grunt);
+
     grunt.initConfig({
 
         qunit: {
@@ -36,11 +38,13 @@ module.exports = function(grunt) {
 
     });
 
-    // load the plugins
+    // load the plugins - commented out after switch to load-grunt-tasks
+    /*
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-qunit");
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-sass");
+    */
 
     // run these tasks in order, stopping if one fails
     grunt.registerTask("default", ["qunit", "uglify:build", "sass:dist"]);

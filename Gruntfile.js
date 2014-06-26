@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-sass");
 
     // run these tasks in order, stopping if one fails
-    grunt.registerTask("default", ["qunit", "uglify:build"]);
+    grunt.registerTask("default", ["qunit", "uglify:build", "sass:dist"]);
 
     // this is an alias
     grunt.registerTask("serve", ["connect"]);

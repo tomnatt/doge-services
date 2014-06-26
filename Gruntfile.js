@@ -48,6 +48,16 @@ module.exports = function(grunt) {
                 files: ["js/*.js", "test/*.js"],
                 tasks: ["qunit"]
             }
+        },
+
+        concurrent: {
+            build: ["sass", "uglify"],
+            dev: {
+                tasks: ["connect", "watch"],
+                options: {
+                    logConcurrentOutput: true
+                }
+            }
         }
 
     });
@@ -65,4 +75,6 @@ module.exports = function(grunt) {
 
     // this is an alias
     grunt.registerTask("serve", ["connect"]);
+    grunt.registerTask("dev", ["concurrent:dev"]);
+
 };

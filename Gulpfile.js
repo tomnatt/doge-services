@@ -36,7 +36,8 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('watch', function() {
+// this makes watch depend on connect so we'll get both running from a single call
+gulp.task('watch', ['connect'], function() {
     tasks.livereload.listen();
     gulp.watch('sass/*.sass', ['sass']);
 });

@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 files: {
-                    "dist/js/app.js": ["js/lib/jquery.min.js", "js/accordian.js"]
+                    "dist/js/app.js": ["js/lib/*.js", "js/*.js"]
                 }
             }
         },
